@@ -10,6 +10,28 @@
   </head>
 
   <body>
+    <header>
+      <ul>
+        <% if user_signed_in? %>
+          <li><a href="/">トップ</a></li>
+          <li><%=link_to 'ログアウト', destroy_user_session_path, method: :delete%></li>
+        <% else %>
+          <li><a href="/">トップ</a></li>
+          <li><a href="/users/sign_up">登録する</a></li>
+          <li><a href="/users/sign_in">ログインする</a></li>
+        <% end %>
+      </ul>
+    </header>
+    <main>
+    <% if notice %>
+      <br>
+      <p class="alert alert-success"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <br>
+      <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
     <%= yield %>
+    </main>
   </body>
 </html>
