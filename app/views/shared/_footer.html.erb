@@ -1,5 +1,5 @@
 <p><a href="/" >トップに戻る</a></p>
-<p><a href="users" >ユーザー一覧に戻る</a></p>
+<p><%= link_to "ユーザー一覧に戻る", users_path %></p>
 
 <% if user_signed_in? %>
   <p><a href="/users/edit">ユーザー情報を編集する</a></p>
