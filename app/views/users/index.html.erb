@@ -1,6 +1,6 @@
 <h1>ユーザー一覧</h1>
 <% @users.each do |u| %>
-  <p><%= u.name %>さん</a></p>
+  <p><a href="/users/<%= u.id %>"><%= u.name %>さん</a></p>
   <hr>
 <% end %>
 <a href="/" class="btn btn-info">トップに戻る</a>
