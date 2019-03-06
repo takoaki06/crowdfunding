@@ -17,7 +17,7 @@
       <tr>
         <td><%= product.title %></td>
         <td><%= product.desc %></td>
-        <td><a href="/users/<%= product.user.id %>"><%= product.user.name %>さん</a></td>
+        <td><%= link_to product.user.name, user_path(product.user.id) %>さん</td>
         <td><%= link_to 'Show', product %></td>
       </tr>
     <% end %>
@@ -25,5 +25,3 @@
 </table>
 
 <br>
-
-<%= link_to 'New Product', new_product_path %>
