@@ -6,7 +6,7 @@ class Admin::ProductsController < Admin::ApplicationController
   
   # admin
   def index
-    @products = Product.where(user_id: current_user.id)
+    @products = current_user.products
   end
 
 
