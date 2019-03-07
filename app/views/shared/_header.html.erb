@@ -1,0 +1,12 @@
+<% if user_signed_in? %>
+  <li><%= link_to "トップ", root_path %></li>
+  <li><%= link_to "みんなのプロダクトを見る", products_path %></li> <!-- 他人の商材 -->
+  <li><%= link_to "マイプロダクト", admin_products_path %></li> <!-- 自分の商材 -->
+  <li><%= link_to "プロダクトを作る", new_admin_product_path %></li>
+  <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete%></li>
+<% else %>
+  <li><%= link_to "トップ", root_path %></li>
+  <li><%= link_to "プロダクトを見る", products_path %></li>
+  <li><%= link_to "登録する", new_user_registration_path %></li>
+  <li><%= link_to "ログインする", new_user_session_path %></li>
+<% end %>
