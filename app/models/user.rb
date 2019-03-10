@@ -10,5 +10,6 @@ class User < ApplicationRecord
   attr_accessor :current_password
 
   has_many :products
+  has_many :investments
 
 end

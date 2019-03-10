@@ -10,5 +10,16 @@
   <%= @product.desc %>
 </p>
 
+<p>
+  <strong>price:</strong>
+  <%= @product.price %>
+</p>
+
+<p>
+  <%= link_to '出資する', new_product_investment_path(@product.id) %>
+</p>
+
+
+
 
 <%= link_to 'Back', products_path %>
