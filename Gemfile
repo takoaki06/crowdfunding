@@ -46,6 +46,11 @@ group :development, :test do
 
   gem 'hirb'
   gem 'hirb-unicode'
+
+  gem 'pry-rails'  
+  gem 'pry-doc'    
+  gem 'pry-byebug' 
+  gem 'pry-stack_explorer' 
 end
 
 group :development do
