@@ -25,7 +25,7 @@
 <%= form_with(model: @investment, url: product_investments_path ) do |form| %>
   <div class="field">
     <%= form.label :金額を選択してください %>
-    <%= form.select :price, Product.all.map{|p| [p.price]} %>
+    <%= form.select :price, [ 1000, 5000, 10000, 20000, 30000, 40000, 50000, 100000 ] %>
   </div>
 
   <div class="actions">
