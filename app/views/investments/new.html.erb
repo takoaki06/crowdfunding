@@ -2,18 +2,23 @@
 
 
 <p>
-  <strong>Title:</strong>
-  <%= @product.title %>
+  <strong>プロダクト名:</strong>
+  <%= @investment.product.title %>
 </p>
 
 <p>
-  <strong>Desc:</strong>
-  <%= @product.desc %>
+  <strong>プロダクトの説明:</strong>
+  <%= @investment.product.desc %>
 </p>
 
 <p>
-  <strong>price:</strong>
-  <%= @product.price %>
+  <strong>企画者:</strong>
+  <%= @investment.product.user.name %>
+</p>
+
+<p>
+  <strong>金額:</strong>
+  <%= @investment.product.price %>
 </p>
 
 

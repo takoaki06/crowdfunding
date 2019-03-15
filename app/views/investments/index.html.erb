@@ -5,9 +5,9 @@
 <table>
   <thead>
     <tr>
-      <th>user.id</th>
-      <th>product.id</th>
-      <th>price</th>
+      <th>プロダクト名</th>
+      <th>企画者</th>
+      <th>金額</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,8 +15,8 @@
   <tbody>
     <% @investments.each do |investment| %>
       <tr>
-      <td><%= link_to investment.user.name, user_path(investment.user.id) %>さん</td>
-      <td><%= investment.product_id %></td>
+      <td><%= link_to investment.product.title, product_path(investment.product.id) %></td>
+      <td><%= link_to investment.product.user.name, user_path(investment.product.user.id) %>さん</td>
       <td><%= investment.price %></td>
       </tr>
     <% end %>

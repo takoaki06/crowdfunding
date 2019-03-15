@@ -7,7 +7,6 @@ class InvestmentsController < ApplicationController
 
   def new
     @investment = current_user.investments.new(product_id: params[:product_id])
-    @product = Product.find(params[:product_id])
   end
 
   def create
