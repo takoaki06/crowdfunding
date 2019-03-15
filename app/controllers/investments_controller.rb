@@ -2,7 +2,7 @@ class InvestmentsController < ApplicationController
   before_action :check_owner, only: [:new, :create]
 
   def index
-    @investments = Investment.all
+    @investments = current_user.investments.all
   end
 
   def new
