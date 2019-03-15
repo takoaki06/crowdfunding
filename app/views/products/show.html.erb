@@ -1,14 +1,30 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Title:</strong>
+  <strong>プロダクト名:</strong>
   <%= @product.title %>
 </p>
 
 <p>
-  <strong>Desc:</strong>
+  <strong>プロダクトの説明:</strong>
   <%= @product.desc %>
 </p>
+
+<p>
+  <strong>企画者:</strong>
+  <%= @product.user.name %>
+</p>
+
+<p>
+  <strong>金額:</strong>
+  <%= @product.price %>
+</p>
+
+<p>
+  <%= link_to '出資する', new_product_investment_path(@product.id) %>
+</p>
+
+
 
 
 <%= link_to 'Back', products_path %>

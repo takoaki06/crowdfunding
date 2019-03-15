@@ -1,15 +1,19 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Title:</strong>
+  <strong>プロダクト名:</strong>
   <%= @product.title %>
 </p>
 
 <p>
-  <strong>Desc:</strong>
+  <strong>プロダクトの説明:</strong>
   <%= @product.desc %>
 </p>
 
+<p>
+  <strong>金額:</strong>
+  <%= @product.price %>
+</p>
 
 <%= link_to 'Edit', edit_admin_product_path(@product) %> |
 <%= link_to 'Back', admin_products_path %>

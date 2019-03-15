@@ -1,14 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Products</h1>
+<h1>マイプロダクト</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Desc</th>
-      <th>User</th>
-      <th colspan="3"></th>
+      <th>プロダクト名</th>
+      <th>プロダクトの説明</th>
+      <th>金額</th>     
     </tr>
   </thead>
 
@@ -17,7 +16,7 @@
       <tr>
         <td><%= product.title %></td>
         <td><%= product.desc %></td>
-        <td><%= link_to product.user.name, user_path(product.user.id) %>さん</td>
+        <td><%= product.price %></td>
         <td><%= link_to 'Show', [:admin, product] %></td>
         <td><%= link_to 'Edit', edit_admin_product_path(product) %></td>
         <td><%= link_to 'Destroy', [:admin, product] , method: :delete, data: { confirm: 'Are you sure?' } %></td>
