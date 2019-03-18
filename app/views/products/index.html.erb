@@ -20,6 +20,7 @@
         <td><%= product.price %></td>
         <td><%= link_to product.user.name, user_path(product.user.id) %>さん</td>
         <td><%= link_to 'Show', product_path(product) %></td>
+        <td><%= render partial: 'likes/like', locals: {likes: @likes} %></td>
       </tr>
     <% end %>
   </tbody>
