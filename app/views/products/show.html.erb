@@ -20,6 +20,8 @@
   <%= @product.price %>
 </p>
 
+<%= render partial: 'likes/like', locals: {likes: @likes} %>
+
 <p>
   <%= link_to '出資する', new_product_investment_path(@product.id) %>
 </p>

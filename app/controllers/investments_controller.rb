@@ -27,6 +27,6 @@ class InvestmentsController < ApplicationController
     end
 
     def investment_params
-      params.require(:investment).permit(:user_id, :product_id, :price)
+      params.require(:investment).permit(:price)
     end
 end
