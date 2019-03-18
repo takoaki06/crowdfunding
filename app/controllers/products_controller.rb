@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show]
+  before_action :set_like, only: [:index]
 
   # GET /products
   # GET /products.json
@@ -24,6 +25,12 @@ class ProductsController < ApplicationController
     def set_product
       @product = Product.find(params[:id])
     end
+
+    def set_like
+      @likes = Like.all
+      @like = Like.new
+    end
+
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
