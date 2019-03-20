@@ -20,10 +20,9 @@
   <%= @product.price %>
 </p>
 
+<strong>いいね数: <%= @product.likes.count %></strong>
 <% if user_signed_in? %>
-  <%= render partial: 'likes/like', locals: {likes: @likes} %>
-<% else %>
-  <strong>いいね数: <%= @product.likes.count %></strong>
+  <%= render partial: 'likes/like_show', locals: {likes: @likes} %>
 <% end %>
 
 <p>

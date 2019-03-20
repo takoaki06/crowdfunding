@@ -1,4 +1,3 @@
-<strong>いいね数: <%= @product.likes.count %></strong>
 <% if current_user.already_liked?(@product) %>
   <%= button_to 'いいねを取り消す', product_like_path(@product), method: :delete %>
 <% else %>
