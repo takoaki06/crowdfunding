@@ -20,7 +20,11 @@
   <%= @product.price %>
 </p>
 
-<%= render partial: 'likes/like', locals: {likes: @likes} %>
+<% if user_signed_in? %>
+  <%= render partial: 'likes/like', locals: {likes: @likes} %>
+<% else %>
+  <strong>いいね数: <%= @product.likes.count %></strong>
+<% end %>
 
 <p>
   <%= link_to '出資する', new_product_investment_path(@product.id) %>

@@ -20,7 +20,21 @@
         <td><%= product.price %></td>
         <td><%= link_to product.user.name, user_path(product.user.id) %>さん</td>
         <td><%= link_to 'Show', product_path(product) %></td>
-        <td><%= render partial: 'likes/like', locals: {likes: @likes} %></td>
+
+        <td>
+          <strong>いいね数: <%= product.likes.count %></strong>
+          <% if user_signed_in? %>
+            <% if current_user.already_liked?(product) %>
+              <%= button_to 'いいねを取り消す', product_like_path(product.id, @likes), method: :delete %>
+            <% else %>
+              <%= form_for @like, url: product_likes_path(product.id) do |f| %>
+                <%= f.hidden_field :user_id, :value => current_user.id %>
+                <%= f.hidden_field :post_id, :value => product.id %>
+                <%= f.submit 'いいね！' %>
+              <% end %>
+            <% end %>  
+          <% end %>
+        </td>
       </tr>
     <% end %>
 

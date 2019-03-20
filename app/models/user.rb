@@ -15,7 +15,7 @@ class User < ApplicationRecord
   has_many :liked_products, through: :likes, source: :product
   
   def already_liked?(product)
-    self.likes.exists?(product_id: product.id)
+    self.likes.exists?(product_id: product.id) #likeモデルの中にproduct_idがあるかの判別
   end
 
 end
