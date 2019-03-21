@@ -20,6 +20,7 @@
         <td><%= link_to 'Show', [:admin, product] %></td>
         <td><%= link_to 'Edit', edit_admin_product_path(product) %></td>
         <td><%= link_to 'Destroy', [:admin, product] , method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><strong>いいね数: <%= product.likes.count %></strong></td>
       </tr>
     <% end %>
   </tbody>
