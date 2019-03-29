@@ -4,8 +4,6 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @likes = Like.all
-    @like = Like.new(user_id: current_user.id)
     if user_signed_in?
       @products = Product.where.not(user_id: current_user.id)
     else
@@ -16,7 +14,6 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
-    @like = Like.new(user_id: current_user.id)
   end
 
 

@@ -2,12 +2,13 @@ class LikesController < ApplicationController
   before_action :check_owner, only: [:create, :destroy]
 
   def create
-    @like = current_user.likes.create(product_id: params[:product_id])
+    @like = current_user.likes.new(product_id: params[:product_id])
+    @like.save
     redirect_back(fallback_location: root_path)
   end
 
   def destroy
-    @like = Like.find_by(product_id: params[:product_id], user_id: current_user.id)
+    @like = current_user.likes.find_by(product_id: params[:product_id])
     @like.destroy
     redirect_back(fallback_location: root_path)
   end
