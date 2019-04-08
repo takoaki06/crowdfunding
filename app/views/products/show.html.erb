@@ -22,7 +22,7 @@
 
 <strong>いいね数: <%= @product.likes.count %></strong>
 <% if user_signed_in? %>
-  <%= render partial: 'likes/like_show' %>
+  <%= render partial: 'likes/like_index', locals: {product: @product}%>
 <% end %>
 
 <p>

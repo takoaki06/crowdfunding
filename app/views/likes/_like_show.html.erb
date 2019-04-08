@@ -1,5 +1,0 @@
-<% if @product.already_liked?(current_user) %>
-  <%= link_to 'いいねを取り消す', product_like_path(@product), method: :delete %>
-<% else %>
-  <%= link_to 'いいね', product_likes_path(@product), method: :post %>
-<% end %>
