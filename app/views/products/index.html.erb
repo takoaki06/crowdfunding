@@ -23,7 +23,7 @@
         <td>
           <strong>いいね数: <%= product.likes.count %></strong>
           <% if user_signed_in? %>
-            <%= render partial: 'likes/like_index', locals: {product: product} %>
+            <%= render partial: 'likes/like', locals: {product: product} %>
           <% end %>
         </td>
       </tr>
