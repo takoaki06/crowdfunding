@@ -15,5 +15,7 @@
   <%= @product.price %>
 </p>
 
+<p><strong>いいね数: <%= @product.likes.count %></strong></p>
+
 <%= link_to 'Edit', edit_admin_product_path(@product) %> |
 <%= link_to 'Back', admin_products_path %>

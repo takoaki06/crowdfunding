@@ -20,8 +20,15 @@
         <td><%= product.price %></td>
         <td><%= link_to product.user.name, user_path(product.user.id) %>さん</td>
         <td><%= link_to 'Show', product_path(product) %></td>
+        <td>
+          <strong>いいね数: <%= product.likes.count %></strong>
+          <% if user_signed_in? %>
+            <%= render partial: 'likes/like', locals: {product: product} %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
+
   </tbody>
 </table>
 
