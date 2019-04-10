@@ -21,7 +21,7 @@ class InvestmentsController < ApplicationController
 
     def check_owner
       product = Product.find(params[:product_id])
-      if product.user_id == current_user.id
+      if product.owner?(current_user)
         return redirect_to product_investments_path, notice: '出資できないよ'
       end
     end
