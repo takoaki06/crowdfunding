@@ -10,4 +10,7 @@ class Product < ApplicationRecord
     self.likes.exists?(user_id: user.id) #likeモデルの中にuser_idがあるかの判別
   end
 
+  def owner?(user)
+    self.user_id == user.id
+  end
 end
