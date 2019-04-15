@@ -11,9 +11,15 @@
 </p>
 
 <p>
-  <strong>金額:</strong>
+  <strong>目標金額:</strong>
   <%= @product.price %>
 </p>
+
+<p>
+  <strong>達成状況:</strong>
+  <%= @product.investments.sum(:price) %>
+</p>
+
 
 <p><strong>いいね数: <%= @product.likes.count %></strong></p>
 
