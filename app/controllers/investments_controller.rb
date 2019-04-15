@@ -39,8 +39,8 @@ class InvestmentsController < ApplicationController
     #出資金額が希望額を超えないようにする
     def not_exceed_price
       product = Product.find(params[:product_id])
-      investment = current_user.investments.new(investment_params)
-      unless investment.exceed?(product)
+      investment = product.investments.new(investment_params)
+      unless investment.exceed?
         return redirect_to product_investments_path, notice: '目標金額以上の出資はできません！'
       end
     end

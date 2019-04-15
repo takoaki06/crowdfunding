@@ -11,7 +11,7 @@ class Investment < ApplicationRecord
   end
 
   #目標額と出資額の判別
-  def exceed?(product)
+  def exceed?
     product.price >= self.price
   end
 end
