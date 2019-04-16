@@ -16,8 +16,13 @@
 </p>
 
 <p>
-  <strong>金額:</strong>
+  <strong>目標金額:</strong>
   <%= @product.price %>
+</p>
+
+<p>
+  <strong>達成状況:</strong>
+  <%= @product.investments.sum(:price) %>
 </p>
 
 <strong>いいね数: <%= @product.likes.count %></strong>
@@ -28,8 +33,5 @@
 <p>
   <%= link_to '出資する', new_product_investment_path(@product.id) %>
 </p>
-
-
-
 
 <%= link_to 'Back', products_path %>

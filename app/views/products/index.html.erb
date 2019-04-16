@@ -7,7 +7,8 @@
     <tr>
       <th>プロダクト名</th>
       <th>プロダクトの説明</th>
-      <th>金額</th>
+      <th>目標金額</th>
+      <th>達成状況</th>
       <th>企画者</th>
     </tr>
   </thead>
@@ -18,6 +19,7 @@
         <td><%= product.title %></td>
         <td><%= product.desc %></td>
         <td><%= product.price %></td>
+        <td><%= product.investments.sum(:price) %></td>
         <td><%= link_to product.user.name, user_path(product.user.id) %>さん</td>
         <td><%= link_to 'Show', product_path(product) %></td>
         <td>
