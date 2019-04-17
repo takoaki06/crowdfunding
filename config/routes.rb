@@ -16,6 +16,10 @@ Rails.application.routes.draw do
     resources :products
   end
 
+  namespace :administer do
+    get 'investments', to: 'investments#index'
+  end
+
   root "top#index"
 
 end
