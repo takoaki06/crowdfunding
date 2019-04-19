@@ -6,7 +6,7 @@ class Administer::InvestmentsController < Administer::ApplicationController
   end
 
   private
-    def login_administer
+    def verify_administer
       unless current_user.administer? 
         return redirect_to root_path
       end

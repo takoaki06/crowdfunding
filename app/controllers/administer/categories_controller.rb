@@ -69,7 +69,7 @@ class Administer::CategoriesController < Administer::ApplicationController
       params.require(:category).permit(:name)
     end
 
-    def login_administer
+    def verify_administer
       unless current_user.administer? 
         return redirect_to root_path
       end
