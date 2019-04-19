@@ -3,11 +3,16 @@
   <li><%= link_to "みんなのプロダクトを見る", products_path %></li> <!-- 他人の商材 -->
   <li><%= link_to "マイプロダクト", admin_products_path %></li> <!-- 自分の商材 -->
   <li><%= link_to "出資したプロダクト", product_investments_path(current_user.id) %></li> <!-- 自分が出資した商材一覧 -->
-  <% if current_user.administer? %>
-    <li><%= link_to "全ユーザーの出資状況", administer_investments_path %></li> <!-- 全ユーザーの出資状況一覧 -->
-  <% end %>
   <li><%= link_to "プロダクトを作る", new_admin_product_path %></li>
   <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete%></li>
+    <% if current_user.administer? %>
+      <ul>
+      <p>管理者</p>
+      <li><%= link_to "全ユーザーの出資状況", administer_investments_path %></li> <!-- 全ユーザーの出資状況一覧 -->
+      <li><%= link_to "カテゴリーの作成", administer_categories_path %></li>
+      </ul>
+    <% end %>
+
 <% else %>
   <li><%= link_to "トップ", root_path %></li>
   <li><%= link_to "プロダクトを見る", products_path %></li>
