@@ -1,5 +1,5 @@
 class Administer::InvestmentsController < Administer::ApplicationController
-  before_action :login_administer
+  before_action :verify_administer
 
   def index
     @investments = Investment.all

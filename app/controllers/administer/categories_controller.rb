@@ -1,6 +1,6 @@
 class Administer::CategoriesController < Administer::ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
-  before_action :login_administer
+  before_action :verify_administer
 
   def index
     @categories = Category.all
