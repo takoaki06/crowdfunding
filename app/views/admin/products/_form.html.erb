@@ -12,18 +12,24 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :title %>
+    <%= form.label :タイトル %>
     <%= form.text_field :title %>
   </div>
 
   <div class="field">
-    <%= form.label :desc %>
+    <%= form.label :プロダクトの説明 %>
     <%= form.text_field :desc %>
   </div>
 
   <div class="field">
-    <%= form.label :price %>
+    <%= form.label :目標金額 %>
     <%= form.number_field :price %>
+  </div>
+
+
+  <div class="field">
+    <%= form.label :カテゴリーを選択してください %>
+    <%= form.collection_select :category_ids, Category.all, :id, :name, { include_blank: '選択してください'} %>
   </div>
 
 

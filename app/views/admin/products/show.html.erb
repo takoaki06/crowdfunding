@@ -20,6 +20,12 @@
   <%= @product.investments.sum(:price) %>
 </p>
 
+<p>
+  <strong>カテゴリー:</strong>
+  <% @product.categories.each do |category| %>
+    <%= category.name %>
+  <% end %>
+</p>
 
 <p><strong>いいね数: <%= @product.likes.count %></strong></p>
 

@@ -25,6 +25,13 @@
   <%= @product.investments.sum(:price) %>
 </p>
 
+<p>
+  <strong>カテゴリー:</strong>
+  <% @product.categories.each do |category| %>
+    <%= category.name %>
+  <% end %>
+</p>
+
 <strong>いいね数: <%= @product.likes.count %></strong>
 <% if user_signed_in? %>
   <%= render partial: 'likes/like', locals: {product: @product}%>
