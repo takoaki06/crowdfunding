@@ -8,6 +8,8 @@ class Product < ApplicationRecord
   has_many :product_categories
   has_many :categories, through: :product_categories  
 
+  mount_uploader :thumbnail, ThumbnailUploader
+
   def already_liked?(user)
     self.likes.exists?(user_id: user.id) #likeモデルの中にuser_idがあるかの判別
   end
