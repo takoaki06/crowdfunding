@@ -34,6 +34,15 @@
     <% end %>
   </div>
 
+  <br/>
+  <br/>
+  <div class="field">
+    <%= image_tag @product.thumbnail.url if @product.thumbnail? %>
+    <%= form.label :画像 %>
+    <%= form.file_field :thumbnail %>
+    <%= form.hidden_field :thumbnail_cache %>
+  </div>
+
 
   <div class="actions">
     <%= form.submit %>

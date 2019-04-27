@@ -10,6 +10,12 @@
   <%= @product.desc %>
 </p>
 
+<% if @product.thumbnail? %>
+    <div class="thumbnail">
+      <%= image_tag @product.thumbnail.url %>
+    </div>
+<% end %>
+
 <p>
   <strong>目標金額:</strong>
   <%= @product.price %>
