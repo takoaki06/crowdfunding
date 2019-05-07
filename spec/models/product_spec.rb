@@ -11,7 +11,7 @@ RSpec.describe "Product", type: :model do
       end
     end
 
-    context "Productの所有者の場合" do
+    context "Productの所有者でない場合" do
       let!(:user) { FactoryBot.create(:user) }
       let!(:owner) { FactoryBot.create(:user) }
       let!(:product) { FactoryBot.create(:product, user: owner) }
@@ -22,23 +22,8 @@ RSpec.describe "Product", type: :model do
     end
   end
 
-  describe "#valid?" do
-    it 'データが正しければtrueを返すこと' do
-      user = FactoryBot.create(:user)
-      product = FactoryBot.build(:product, user: user)
-
-      expect(product.valid?).to be true
-    end
-
-    it 'データが正しくなければfalseを返すこと' do
-      product = FactoryBot.build(:product)
-      expect(product.valid?).to be false
-    end
-
-  end
-
   describe "#already_liked?" do
-    context 'すでにlikeしている場合' do
+    context '自身のlikeが存在する場合' do
       let!(:user) { FactoryBot.create(:user) }
       let!(:product) { FactoryBot.create(:product, user: user) }
       let!(:like) { FactoryBot.create(:like, product: product, user: user) }
@@ -48,7 +33,7 @@ RSpec.describe "Product", type: :model do
       end
     end
 
-    context 'likeしていない場合' do
+    context '自身のlikeが存在しない場合' do
       let!(:user) { FactoryBot.create(:user) }
       let!(:product) { FactoryBot.create(:product, user: user) }
 
@@ -57,7 +42,7 @@ RSpec.describe "Product", type: :model do
       end
     end
 
-    context '自分以外のlikeが存在する場合' do
+    context '自身のlikeが存在しないかつ自分以外のlikeが存在している場合' do
       let!(:user) { FactoryBot.create(:user) }
       let!(:product) { FactoryBot.create(:product, user: user) }
 
