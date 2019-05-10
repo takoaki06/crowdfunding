@@ -18,6 +18,13 @@
   <%= f.text_area :profile, autofocus: true %>
   </div>
 
+  <div class="check_box">
+    <%= f.label :category_ids, 'カテゴリーを選択してください' %>
+    <%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |c| %>
+      <%= c.label + c.check_box %>
+    <% end %>
+  </div>
+
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'watchings/index'
   resources :products, only: [:show, :index] do
     resources :investments, only: [:index, :new, :create]
     resources :likes, only: [:create, :destroy]

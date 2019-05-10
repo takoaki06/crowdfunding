@@ -1,0 +1,34 @@
+<h3>気になるカテゴリー</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>プロダクト名</th>
+      <th>プロダクトの説明</th>
+      <th>目標金額</th>
+      <th>達成状況</th>
+      <th>いいね</th>
+      <th>カテゴリー</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @watchings.each do |watching| %>
+      <% watching.products.each do |wp| %>
+      <tr>
+        <td><%= wp.title %></td>
+        <td><%= wp.desc %></td>
+        <td><%= wp.price %></td>
+        <td><%= wp.investments.sum(:price) %></td>
+        <td>
+          <strong>いいね数: <%= wp.likes.count %></strong>
+        </td>
+          <% wp.categories.each do |wc| %>
+            <td><%= wc.name %></td>
+          <% end %>
+      </tr>
+      <% end %>
+    <% end %>
+
+  </tbody>
+</table>
