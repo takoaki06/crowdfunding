@@ -1,7 +1,4 @@
-<p id="notice"><%= notice %></p>
-
-<h1>プロダクト</h1>
-
+  <h3>気になるカテゴリー</h3>
 <table>
   <thead>
     <tr>
@@ -10,6 +7,8 @@
       <th>目標金額</th>
       <th>達成状況</th>
       <th>企画者</th>
+      <th>いいね</th>
+      <th>カテゴリー</th>
     </tr>
   </thead>
 
@@ -21,16 +20,11 @@
         <td><%= product.price %></td>
         <td><%= product.investments.sum(:price) %></td>
         <td><%= link_to product.user.name, user_path(product.user.id) %>さん</td>
-        <td><%= link_to 'Show', product_path(product) %></td>
-        <td>
-          <strong>いいね数: <%= product.likes.count %></strong>
-          <% if user_signed_in? %>
-            <%= render partial: 'likes/like', locals: {product: product} %>
-          <% end %>
-        </td>
+        <td><strong>いいね数: <%= product.likes.count %></strong></td>
+        <% product.categories.each do |pc| %>
+          <td><%= pc.name %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>

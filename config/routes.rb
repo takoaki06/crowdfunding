@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'watchings/index'
   resources :products, only: [:show, :index] do
     resources :investments, only: [:index, :new, :create]
     resources :likes, only: [:create, :destroy]
@@ -15,10 +14,11 @@ Rails.application.routes.draw do
   
   namespace :admin do
     resources :products
+    resources :watchings, only: [:index]
   end
 
   namespace :administer do
-    get 'investments', to: 'investments#index'
+    resources :investments, only: [:index]
     resources :categories
   end
 

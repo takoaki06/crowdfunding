@@ -3,4 +3,7 @@
   <p><%= link_to u.name, user_path(u.id) %>さん</p>
   <hr>
 <% end %>
+<% if user_signed_in? %>
+  <p><%= link_to "ユーザー情報を編集する", edit_user_registration_path %></p>
+<% end %>
 <p><%= link_to "トップに戻る", root_path	%><p>
