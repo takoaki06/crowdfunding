@@ -1,0 +1,28 @@
+<%= form_with(model: @user, local: true) do |form| %>
+
+  <div class="field">
+    <%= form.label :名前 %><br />
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :メールアドレス %><br />
+    <%= form.email_field :email %>
+  </div>
+
+  <div class="field">
+  <%= form.label :プロフィール %><br />
+  <%= form.text_area :profile %>
+  </div>
+  
+  <div class="check_box">
+    <%= form.label :category_ids, 'カテゴリーを選択してください' %>
+    <%= form.collection_check_boxes :category_ids, Category.all, :id, :name do |c| %>
+      <%= c.label + c.check_box %>
+    <% end %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
