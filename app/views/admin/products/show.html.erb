@@ -29,7 +29,7 @@
 <p>
   <strong>カテゴリー:</strong>
   <% @product.categories.each do |category| %>
-    <%= link_to category.name, watchings_index_path %>
+    <%= category.name %>
   <% end %>
 </p>
 
