@@ -14,10 +14,11 @@ Rails.application.routes.draw do
   
   namespace :admin do
     resources :products
+    resources :watchings, only: [:index]
   end
 
   namespace :administer do
-    get 'investments', to: 'investments#index'
+    resources :investments, only: [:index]
     resources :categories
   end
 

@@ -13,7 +13,9 @@ class User < ApplicationRecord
   has_many :investments
   has_many :likes, dependent: :destroy
   has_many :liked_products, through: :likes, source: :product
-  
+
+  has_many :watchings
+  has_many :categories, through: :watchings
   enum role: [:general, :administer]
 
 end
