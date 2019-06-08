@@ -1,0 +1,6 @@
+<h3>グループ</h3>
+<% @message_groups.each do |message_group| %>
+    <p><%= link_to message_group.name, message_group_path(message_group.id) %></p>
+<% end %>
+<br>
+<%= link_to "グループを作成する", new_message_group_path %>

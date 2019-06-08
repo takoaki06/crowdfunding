@@ -5,7 +5,9 @@
   <li><%= link_to "出資したプロダクト", product_investments_path(current_user.id) %></li> <!-- 自分が出資した商材一覧 -->
   <li><%= link_to "プロダクトを作る", new_admin_product_path %></li>
   <li><%= link_to "ユーザー一覧", users_path %></li>
+  <li><%= link_to "メッセージ一覧", message_groups_path %></li>
   <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete%></li>
+
     <% if current_user.administer? %>
       <ul>
       <p>管理者</p>

@@ -22,6 +22,10 @@ Rails.application.routes.draw do
     resources :categories
   end
 
+  resources :message_groups do
+    post 'message_create', on: :member
+  end
+
   root "top#index"
 
 end

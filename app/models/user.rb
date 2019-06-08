@@ -18,4 +18,7 @@ class User < ApplicationRecord
   has_many :categories, through: :watchings
   enum role: [:general, :administer]
 
+  has_many :user_message_groups
+  has_many :message_groups, through: :user_message_groups
+
 end
