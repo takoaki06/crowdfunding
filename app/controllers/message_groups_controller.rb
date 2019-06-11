@@ -1,8 +1,9 @@
 class MessageGroupsController < ApplicationController
   before_action :set_message_group, only: [:show, :message_create]
+  PER = 10
 
   def index
-    @message_groups = current_user.message_groups.all
+    @message_groups = current_user.message_groups.page(params[:page]).per(PER)
   end
 
 

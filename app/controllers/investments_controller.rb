@@ -2,9 +2,10 @@ class InvestmentsController < ApplicationController
   before_action :check_owner, only: [:new, :create]
   before_action :limit_of_amount, only: [:new, :create]
   before_action :not_exceed_price, only: [:create]
+  PER = 10
 
   def index
-    @investments = current_user.investments.all
+    @investments = current_user.investments.page(params[:page]).per(PER)
   end
 
   def new

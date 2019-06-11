@@ -1,9 +1,10 @@
 class Administer::CategoriesController < Administer::ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
   before_action :verify_administer
+  PER = 10
 
   def index
-    @categories = Category.all
+    @categories = Category.page(params[:page]).per(PER)
   end
 
 

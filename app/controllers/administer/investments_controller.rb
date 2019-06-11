@@ -1,8 +1,9 @@
 class Administer::InvestmentsController < Administer::ApplicationController
   before_action :verify_administer
+  PER = 10
 
   def index
-    @investments = Investment.all
+    @investments = Investment.page(params[:page]).per(PER)
   end
 
   private
