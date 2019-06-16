@@ -1,23 +1,31 @@
-<p id="notice"><%= notice %></p>
+<h2>出資一覧</h2>
 
-<h1>出資一覧</h1>
-
-<table>
-  <thead>
+<table class="table">
+  <thead class="thead-light">
     <tr>
       <th>プロダクト名</th>
+      <th>プロダクトの説明</th>
+      <th>目標金額</th>
+      <th>達成状況</th>
       <th>企画者</th>
-      <th>出資金額</th>
+      <th>あなたが出資した金額</th>
+      <th>いいね</th>
+      <th>詳細</th>
     </tr>
   </thead>
 
   <tbody>
     <% @investments.each do |investment| %>
       <tr>
-      <td><%= link_to investment.product.title, product_path(investment.product.id) %></td>
+      <td><%= investment.product.title %></td>
+      <td><%= truncate(investment.product.desc, length: 10) %></td>
+      <td><%= number_with_delimiter(investment.product.price) %></td>
+      <td></td>
       <td><%= link_to investment.product.user.name, user_path(investment.product.user.id) %>さん</td>
-      <td><%= investment.price %></td>
-      </tr>
+      <td><%= number_with_delimiter(investment.price) %></td>
+      <td><strong><%= investment.product.likes.count %></strong></td>
+      <td><%= link_to '詳細', product_path(investment.product.id) %></td>
+      </tr>     
     <% end %>
   </tbody>
 

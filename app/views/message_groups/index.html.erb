@@ -1,7 +1,20 @@
-<h3>グループ</h3>
-<% @message_groups.each do |message_group| %>
-    <p><%= link_to message_group.name, message_group_path(message_group.id) %></p>
-<% end %>
+<h3>作成したグループ一覧</h3>
+
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th>グループ名</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @message_groups.each do |message_group| %>
+    	<tr>
+				<td><%= link_to message_group.name, message_group_path(message_group.id) %></td>
+			</tr>
+		<% end %>
+  </tbody>
+</table>
+
 <%= paginate @message_groups %>
-<br>
 <%= link_to "グループを作成する", new_message_group_path %>

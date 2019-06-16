@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     :registrations => 'users/registrations'
    }
 
-  resources :users, only: [:show, :index, :edit, :update]
+  resources :users, only: [:show, :edit, :update]
 
   
   namespace :admin do
@@ -26,6 +26,6 @@ Rails.application.routes.draw do
     post 'message_create', on: :member
   end
 
-  root "top#index"
+  root "products#index"
 
 end

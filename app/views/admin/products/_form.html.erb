@@ -12,39 +12,48 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :タイトル %>
-    <%= form.text_field :title %>
+    <p>
+      <%= form.label :タイトル %><br>
+      <%= form.text_field :title, placeholder: "タイトル" %>
+    </p>
   </div>
 
   <div class="field">
-    <%= form.label :プロダクトの説明 %>
-    <%= form.text_field :desc %>
+    <p>
+      <%= form.label :プロダクトの説明 %><br>
+      <%= form.text_area :desc, placeholder: "説明文", size: "40x10" %>
+    </p>
   </div>
-
+  
   <div class="field">
-    <%= form.label :目標金額 %>
-    <%= form.number_field :price %>
+    <p>
+      <%= form.label :目標金額 %>
+      <%= form.number_field :price %>
+    </p>
   </div>
 
 
   <div class="check_box">
-    <%= form.label :category_ids, 'カテゴリーを選択してください' %>
-    <%= form.collection_check_boxes :category_ids, Category.all, :id, :name do |c| %>
-      <%= c.label + c.check_box %>
-    <% end %>
+    <p>
+      <%= form.label :category_ids, "カテゴリーの選択" %><br>
+      <%= form.collection_check_boxes :category_ids, Category.all, :id, :name do |c| %>
+        <%= c.label + c.check_box %>
+      <% end %>
+    </p>
   </div>
 
-  <br/>
-  <br/>
   <div class="field">
-    <%= image_tag @product.thumbnail.url if @product.thumbnail? %>
-    <%= form.label :画像 %>
-    <%= form.file_field :thumbnail %>
-    <%= form.hidden_field :thumbnail_cache %>
+    <p>
+      <%= image_tag @product.thumbnail.url if @product.thumbnail? %>
+      <%= form.label :プロダクトの画像 %>
+      <%= form.file_field :thumbnail %>
+      <%= form.hidden_field :thumbnail_cache %>
+    </p>
   </div>
 
 
   <div class="actions">
-    <%= form.submit %>
+    <p><%= form.submit %></p>
   </div>
 <% end %>
+<br>

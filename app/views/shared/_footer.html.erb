@@ -1,6 +1,6 @@
 <p><%= link_to "トップに戻る", root_path %></p>
 <p><%= link_to "ユーザー一覧", users_path %></p>
 
-<% if user_signed_in? %>
+<% if current_user.id == @user.id %>
   <p><%= link_to "ユーザー情報を編集する", edit_user_path %></p>
 <% end %>

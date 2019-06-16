@@ -1,29 +1,30 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-6">
+  <h5><%= @product.title %></h5>
 
+  <% if @product.thumbnail? %>
+      <div class="thumbnail">
+        <%= image_tag @product.thumbnail.url %>
+      </div>
+  <% end %>
+
+  <br>
+  <p><%= @product.desc %></p>
+
+</div>
+
+<div class="col-3">
 <p>
-  <strong>プロダクト名:</strong>
-  <%= @product.title %>
+  <strong>達成状況:</strong>
+    <% unless @product.investments.sum(:price) == 0 %>
+      <%= "¥" %>
+    <% end %>
+  <%= number_with_delimiter(@product.investments.sum(:price)) %>
 </p>
-
-<p>
-  <strong>プロダクトの説明:</strong>
-  <%= @product.desc %>
-</p>
-
-<% if @product.thumbnail? %>
-    <div class="thumbnail">
-      <%= image_tag @product.thumbnail.url %>
-    </div>
-<% end %>
 
 <p>
   <strong>目標金額:</strong>
-  <%= @product.price %>
-</p>
-
-<p>
-  <strong>達成状況:</strong>
-  <%= @product.investments.sum(:price) %>
+  ¥<%= number_with_delimiter(@product.price) %>
 </p>
 
 <p>
@@ -33,7 +34,5 @@
   <% end %>
 </p>
 
-<p><strong>いいね数: <%= @product.likes.count %></strong></p>
-
-<%= link_to 'Edit', edit_admin_product_path(@product) %> |
-<%= link_to 'Back', admin_products_path %>
+<p><%= @product.likes.count %>人が「いいね！」をしました</p>
+</div>

@@ -1,36 +1,29 @@
-<p id="notice"><%= notice %></p>
-
-<h3>プロダクト</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th>プロダクト名</th>
-      <th>プロダクトの説明</th>
-      <th>目標金額</th>
-      <th>達成状況</th>
-      <th>企画者</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @products.each do |product| %>
-      <tr>
-        <td><%= product.title %></td>
-        <td><%= product.desc %></td>
-        <td><%= product.price %></td>
-        <td><%= product.investments.sum(:price) %></td>
-        <td><%= link_to product.user.name, user_path(product.user.id) %>さん</td>
-        <td><%= link_to 'Show', product_path(product) %></td>
-        <td>
-          <strong>いいね数: <%= product.likes.count %></strong>
-          <% if user_signed_in? %>
-            <%= render partial: 'likes/like', locals: {product: product} %>
-          <% end %>
-        </td>
-      </tr>
+<div class="card-columns">
+<% @products.each do |product| %>
+  <div class="card">
+    <% if product.thumbnail? %>
+      <div class="thumbnail">
+        <%= link_to product_path(product) do %>
+          <%= image_tag product.thumbnail.url %>
+        <% end %>
+      </div>
     <% end %>
-  </tbody>
-</table>
+    <h5 class="card-title"><%= link_to product.title, product_path(product) %></h5>
+    <p class="card-name"><%= link_to product.user.name, user_path(product.user.id) %></p>
+    <p class="card-investment-price">達成状況:
+      <% unless product.investments.sum(:price) == 0 %>
+        <%= "¥" %>
+      <% end %>
+      <%= number_with_delimiter(product.investments.sum(:price)) %></p>
+    <p class="card-product-price">目標金額:¥<%= number_with_delimiter(product.price) %></p>
+    <strong>いいね！<%= product.likes.count %>人</strong>
+    <% if user_signed_in? %>
+      <%= render partial: 'likes/like', locals: {product: product} %>
+    <% end %>
+    
+  </div>  
+<% end %>
+</div>
+
 <%= paginate @products %>
 <br>

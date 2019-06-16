@@ -1,10 +1,19 @@
-<h1>ユーザー情報</h1>
-<p>名前：<%= @user.name %></p>
-<p>メールアドレス：<%= @user.email %></p>
-<p>プロフィール：<%= @user.profile %></p>
 <% if current_user.id == @user.id %>
-  <p>気になるカテゴリー: <%= link_to @user.categories.map(&:name).join('.'), admin_watchings_path %></p>
+  <h5>あなたのプロフィール</h5>
+<% else %>
+  <h5>プロフィール</h5>
 <% end %>
-<br>
+<dl>
+  <dt>名前</dt>
+  <dd><%= @user.name %></dd>
+  <dt>プロフィール</dt>
+  <dd><%= @user.profile %></dd>
+  <% if current_user.id == @user.id %>
+    <dt>気になるカテゴリー</dt>
+    <dd><%= link_to @user.categories.map(&:name).join('.'), admin_watchings_path %></dd>
+  <% end %>
+</dl>
 
-<%= render 'shared/footer' %>
+<% if current_user.id == @user.id %>
+  <p><%= link_to "ユーザー情報を編集する", edit_user_path %></p>
+<% end %>

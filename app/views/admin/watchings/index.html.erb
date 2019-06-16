@@ -1,6 +1,6 @@
-  <h3>気になるカテゴリー</h3>
-<table>
-  <thead>
+<h2>気になるカテゴリー</h2>
+<table class="table">
+  <thead class="thead-light">
     <tr>
       <th>プロダクト名</th>
       <th>プロダクトの説明</th>
@@ -16,11 +16,11 @@
     <% @products.each do |product| %>
       <tr>
         <td><%= product.title %></td>
-        <td><%= product.desc %></td>
-        <td><%= product.price %></td>
-        <td><%= product.investments.sum(:price) %></td>
+        <td><%= truncate(product.desc, length: 10) %></td>
+        <td><%= number_with_delimiter(product.price) %></td>
+        <td><%= number_with_delimiter(product.investments.sum(:price)) %></td>
         <td><%= link_to product.user.name, user_path(product.user.id) %>さん</td>
-        <td><strong>いいね数: <%= product.likes.count %></strong></td>
+        <td><strong><%= product.likes.count %></strong></td>
         <% product.categories.each do |pc| %>
           <td><%= pc.name %></td>
         <% end %>
@@ -28,3 +28,4 @@
     <% end %>
   </tbody>
 </table>
+<%= paginate @products %>
