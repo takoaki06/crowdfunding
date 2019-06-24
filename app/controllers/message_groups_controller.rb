@@ -20,7 +20,7 @@ class MessageGroupsController < ApplicationController
 
   def show
     @message = @message_group.messages.new
-    @messages = Message.where(message_group_id: @message_group).newer
+    @messages = Message.includes(:sender).where(message_group_id: @message_group).newer
   end
 
   def message_create

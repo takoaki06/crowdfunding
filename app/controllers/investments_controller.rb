@@ -5,7 +5,7 @@ class InvestmentsController < ApplicationController
   PER = 10
 
   def index
-    @investments = current_user.investments.page(params[:page]).per(PER)
+    @investments = current_user.investments.includes(product: :user).page(params[:page]).per(PER)
   end
 
   def new

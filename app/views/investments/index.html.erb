@@ -20,10 +20,10 @@
       <td><%= investment.product.title %></td>
       <td><%= truncate(investment.product.desc, length: 10) %></td>
       <td><%= number_with_delimiter(investment.product.price) %></td>
-      <td></td>
+      <td><%=%></td>
       <td><%= link_to investment.product.user.name, user_path(investment.product.user.id) %>さん</td>
       <td><%= number_with_delimiter(investment.price) %></td>
-      <td><strong><%= investment.product.likes.count %></strong></td>
+      <td><strong><%= investment.product.likes.size %></strong></td>
       <td><%= link_to '詳細', product_path(investment.product.id) %></td>
       </tr>     
     <% end %>

@@ -24,7 +24,7 @@
         <td><%= link_to '詳細', [:admin, product] %></td>
         <td><%= link_to '編集する', edit_admin_product_path(product) %></td>
         <td><%= link_to '削除する', [:admin, product] , method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><strong><%= product.likes.count %></strong></td>
+        <td><strong><%= product.likes.size %></strong></td>
       </tr>
     <% end %>
   </tbody>

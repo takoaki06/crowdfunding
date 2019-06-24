@@ -3,7 +3,7 @@ class Administer::InvestmentsController < Administer::ApplicationController
   PER = 10
 
   def index
-    @investments = Investment.page(params[:page]).per(PER)
+    @investments = Investment.includes({product: :user}).page(params[:page]).per(PER)
   end
 
   private

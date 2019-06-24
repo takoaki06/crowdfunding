@@ -6,6 +6,7 @@
       <li class="nav-item"><%= link_to "出資したプロダクト", product_investments_path(current_user.id), class: "nav-link"%></li> <!-- 自分が出資した商材の一覧 -->
       <li class="nav-item"><%= link_to "プロダクトを作る", new_admin_product_path, class: "nav-link" %></li>
       <li class="nav-item"><%= link_to "メッセージ一覧", message_groups_path, class: "nav-link" %></li>
+      <li class="nav-item"><%= link_to "ユーザー情報", user_path(current_user.id), class: "nav-link" %></li>
       <li class="nav-item"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "nav-link" %></li>
     </ul>
     <% if current_user.administer? %>

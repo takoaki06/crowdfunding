@@ -39,7 +39,7 @@
     </p>
 
     <p>
-      <strong>いいね数: <%= @product.likes.count %></strong>
+      <strong>いいね数: <%= @product.likes.size %></strong>
       <% if user_signed_in? %>
         <%= render partial: 'likes/like', locals: {product: @product}%>
       <% end %>

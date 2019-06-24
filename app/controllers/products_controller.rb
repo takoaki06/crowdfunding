@@ -6,9 +6,9 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     if user_signed_in?
-      @products = Product.where.not(user_id: current_user.id).page(params[:page]).per(PER)
+      @products = Product.includes(:user).where.not(user_id: current_user.id).page(params[:page]).per(PER)
     else
-      @products = Product.all.page(params[:page]).per(PER)
+      @products = Product.all.includes(:user).page(params[:page]).per(PER)
     end
   end
 

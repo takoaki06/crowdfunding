@@ -20,7 +20,7 @@
         <td><%= number_with_delimiter(product.price) %></td>
         <td><%= number_with_delimiter(product.investments.sum(:price)) %></td>
         <td><%= link_to product.user.name, user_path(product.user.id) %>さん</td>
-        <td><strong><%= product.likes.count %></strong></td>
+        <td><strong><%= product.likes.size %></strong></td>
         <% product.categories.each do |pc| %>
           <td><%= pc.name %></td>
         <% end %>

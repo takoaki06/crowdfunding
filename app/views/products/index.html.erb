@@ -16,7 +16,7 @@
       <% end %>
       <%= number_with_delimiter(product.investments.sum(:price)) %></p>
     <p class="card-product-price">目標金額:¥<%= number_with_delimiter(product.price) %></p>
-    <strong>いいね！<%= product.likes.count %>人</strong>
+    <strong>いいね！<%= product.likes.size %>人</strong>
     <% if user_signed_in? %>
       <%= render partial: 'likes/like', locals: {product: product} %>
     <% end %>
