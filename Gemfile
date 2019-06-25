@@ -79,6 +79,8 @@ group :development do
   gem 'rb-readline'
   gem 'spring-commands-rspec'
   gem 'bullet'
+  gem 'letter_opener'
+  gem 'letter_opener_web'
 end
 
 group :test do
