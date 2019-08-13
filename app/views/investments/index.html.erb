@@ -6,7 +6,6 @@
       <th>プロダクト名</th>
       <th>プロダクトの説明</th>
       <th>目標金額</th>
-      <th>達成状況</th>
       <th>企画者</th>
       <th>あなたが出資した金額</th>
       <th>いいね</th>
@@ -20,7 +19,6 @@
       <td><%= investment.product.title %></td>
       <td><%= truncate(investment.product.desc, length: 10) %></td>
       <td><%= number_with_delimiter(investment.product.price) %></td>
-      <td><%=%></td>
       <td><%= link_to investment.product.user.name, user_path(investment.product.user.id) %>さん</td>
       <td><%= number_with_delimiter(investment.price) %></td>
       <td><strong><%= investment.product.likes.size %></strong></td>
