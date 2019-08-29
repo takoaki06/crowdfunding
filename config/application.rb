@@ -15,7 +15,7 @@ module Crowdfunding
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
-    config.autoload_paths += Dir[Rails.root.join('app', 'uploaders')]
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
 
     config.generators do |g|
         g.test_framework :rspec,
@@ -24,5 +24,8 @@ module Crowdfunding
         helper_specs: false,
         routing_specs: false
     end
+
+    config.time_zone = 'Tokyo'
+    config.active_record.default_timezone = :local 
   end
 end

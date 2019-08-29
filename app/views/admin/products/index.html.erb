@@ -1,14 +1,16 @@
-<p id="notice"><%= notice %></p>
+<h2>マイプロダクト</h2>
 
-<h1>マイプロダクト</h1>
-
-<table>
-  <thead>
+<table class="table">
+  <thead class="thead-light">
     <tr>
       <th>プロダクト名</th>
       <th>プロダクトの説明</th>
       <th>目標金額</th>
       <th>達成状況</th>
+      <th>詳細</th>
+      <th>編集</th>
+      <th>削除</th>
+      <th>いいね</th>
     </tr>
   </thead>
 
@@ -16,18 +18,16 @@
     <% @products.each do |product| %>
       <tr>
         <td><%= product.title %></td>
-        <td><%= product.desc %></td>
-        <td><%= product.price %></td>
-        <td><%= product.investments.sum(:price) %></td>
-        <td><%= link_to 'Show', [:admin, product] %></td>
-        <td><%= link_to 'Edit', edit_admin_product_path(product) %></td>
-        <td><%= link_to 'Destroy', [:admin, product] , method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><strong>いいね数: <%= product.likes.count %></strong></td>
+        <td><%= truncate(product.desc, length: 10) %></td>
+        <td><%= number_with_delimiter(product.price) %></td>
+        <td><%= number_with_delimiter(product.investments.sum(:price)) %></td>
+        <td><%= link_to '詳細', [:admin, product] %></td>
+        <td><%= link_to '編集する', edit_admin_product_path(product) %></td>
+        <td><%= link_to '削除する', [:admin, product] , method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><strong><%= product.likes.size %></strong></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
+<%= paginate @products %>
 <br>
-
-<%= link_to 'New Product', new_admin_product_path %>

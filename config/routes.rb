@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     :registrations => 'users/registrations'
    }
 
-  resources :users, only: [:show, :index, :edit, :update]
+  resources :users, only: [:show, :edit, :update]
 
   
   namespace :admin do
@@ -22,6 +22,14 @@ Rails.application.routes.draw do
     resources :categories
   end
 
-  root "top#index"
+  resources :message_groups do
+    post 'message_create', on: :member
+  end
+
+  root "products#index"
+
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: '/letter_opener'
+  end
 
 end

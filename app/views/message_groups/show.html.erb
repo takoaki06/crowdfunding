@@ -1,0 +1,28 @@
+<h4><%= @message_group.name %></h4>
+
+<%= form_with model: @message, url: message_create_message_group_path do |f| %>
+  <div class="field">
+    <%= f.text_field :comment %>
+  </div>
+  <div class="actions">  
+    <%= f.submit "メッセージを送る" %>
+  </div>
+<% end %>
+
+<% @messages.each do |message| %>
+  <% if message.sender_id == current_user.id %>
+    <p>
+      <%= message.comment %>
+      <%= link_to message.sender.name, user_path(message.sender_id)%>
+      <%= message.created_at.strftime("%Y年%m月%d日 %H時%M分") %>
+    </p>
+  <% else %>
+    <p>
+      <strong>
+        <%= message.comment %>
+        <%= link_to message.sender.name, user_path(message.sender_id)%>
+        <%= message.created_at.strftime("%Y年%m月%d日 %H時%M分") %>
+      </strong>
+    </p>
+  <% end %>
+<% end %>

@@ -1,12 +1,11 @@
 class Admin::ProductsController < Admin::ApplicationController
 
   before_action :set_product, only: [:show, :edit, :update, :destroy]
-
-  
+  PER = 10
   
   # admin
   def index
-    @products = current_user.products
+    @products = current_user.products.page(params[:page]).per(PER)
   end
 
 

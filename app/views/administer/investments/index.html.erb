@@ -1,9 +1,7 @@
-<p id="notice"><%= notice %></p>
+<h2>出資一覧</h2>
 
-<h1>出資一覧</h1>
-
-<table>
-  <thead>
+<table class="table">
+  <thead class="thead-light">
     <tr>
       <th>プロダクト名</th>
       <th>企画者</th>
@@ -16,9 +14,9 @@
       <tr>
       <td><%= link_to investment.product.title, product_path(investment.product.id) %></td>
       <td><%= link_to investment.product.user.name, user_path(investment.product.user.id) %>さん</td>
-      <td><%= investment.price %></td>
+      <td><%= number_with_delimiter(investment.price) %></td>
       </tr>
     <% end %>
   </tbody>
-
 </table>
+<%= paginate @investments %>

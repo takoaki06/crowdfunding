@@ -6,7 +6,7 @@ ruby '2.6.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.3.6'
+# gem 'sqlite3', '~> 1.3.6'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -44,6 +44,15 @@ gem 'bootstrap'
 
 gem 'jquery-rails'
 
+gem 'mysql2', '~> 0.4.10'
+
+gem 'kaminari', '~> 0.17.0'
+
+gem 'devise-bootstrap-views', '~> 1.0'
+
+gem 'devise-i18n'
+gem 'devise-i18n-views'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -69,6 +78,9 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'rb-readline'
   gem 'spring-commands-rspec'
+  gem 'bullet'
+  gem 'letter_opener'
+  gem 'letter_opener_web'
 end
 
 group :test do

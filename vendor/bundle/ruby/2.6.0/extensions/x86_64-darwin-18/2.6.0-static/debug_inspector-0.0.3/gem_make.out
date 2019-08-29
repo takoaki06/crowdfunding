@@ -1,0 +1,15 @@
+current directory: /Users/sasakitakaaki/crowdfunding/vendor/bundle/ruby/2.6.0/gems/debug_inspector-0.0.3/ext/debug_inspector
+/Users/sasakitakaaki/.rbenv/versions/2.6.1/bin/ruby -I /Users/sasakitakaaki/.rbenv/versions/2.6.1/lib/ruby/2.6.0 -r ./siteconf20190608-58451-64p5l8.rb extconf.rb
+creating Makefile
+
+current directory: /Users/sasakitakaaki/crowdfunding/vendor/bundle/ruby/2.6.0/gems/debug_inspector-0.0.3/ext/debug_inspector
+make "DESTDIR=" clean
+
+current directory: /Users/sasakitakaaki/crowdfunding/vendor/bundle/ruby/2.6.0/gems/debug_inspector-0.0.3/ext/debug_inspector
+make "DESTDIR="
+compiling debug_inspector.c
+linking shared-object debug_inspector.bundle
+
+current directory: /Users/sasakitakaaki/crowdfunding/vendor/bundle/ruby/2.6.0/gems/debug_inspector-0.0.3/ext/debug_inspector
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 debug_inspector.bundle ./.gem.20190608-58451-13euxp9

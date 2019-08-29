@@ -1,44 +1,48 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-6">
+    <h3><%= @product.title %></h3> <!-- 色をつけたい -->
 
-<p>
-  <strong>プロダクト名:</strong>
-  <%= @product.title %>
-</p>
+    <% if @product.thumbnail? %>
+      <div class="thumbnail">
+        <%= image_tag @product.thumbnail.url %>
+      </div>
+    <% end %>
 
-<p>
-  <strong>プロダクトの説明:</strong>
-  <%= @product.desc %>
-</p>
 
-<p>
-  <strong>企画者:</strong>
-  <%= @product.user.name %>
-</p>
+    <p><%= @product.desc %></p>
+  </div>
 
-<p>
-  <strong>目標金額:</strong>
-  <%= @product.price %>
-</p>
 
-<p>
-  <strong>達成状況:</strong>
-  <%= @product.investments.sum(:price) %>
-</p>
+  <div class="col-3">
+    <p>
+      <strong>企画者:</strong>
+      <%= link_to @product.user.name, user_path(@product.user.id) %>
+    </p>
+    <p><strong>達成状況:</strong>
+      <% unless @product.investments.sum(:price) == 0 %>
+        <%= "¥" %>
+      <% end %>
+      <%= number_with_delimiter(@product.investments.sum(:price)) %>
+    </p>
+    <p>
+      <strong>目標金額:</strong>
+      ¥<%= number_with_delimiter(@product.price) %>
+    </p>
+    <p>
+      <%= link_to '出資する', new_product_investment_path(@product.id) %>
+    </p>
+    <p>
+      <strong>カテゴリー:</strong>
+      <% @product.categories.each do |category| %>
+        <%= category.name %>
+      <% end %>
+    </p>
 
-<p>
-  <strong>カテゴリー:</strong>
-  <% @product.categories.each do |category| %>
-    <%= category.name %>
-  <% end %>
-</p>
-
-<strong>いいね数: <%= @product.likes.count %></strong>
-<% if user_signed_in? %>
-  <%= render partial: 'likes/like', locals: {product: @product}%>
-<% end %>
-
-<p>
-  <%= link_to '出資する', new_product_investment_path(@product.id) %>
-</p>
-
-<%= link_to 'Back', products_path %>
+    <p>
+      <strong>いいね数: <%= @product.likes.size %></strong>
+      <% if user_signed_in? %>
+        <%= render partial: 'likes/like', locals: {product: @product}%>
+      <% end %>
+    </p>
+  </div>
+</div>

@@ -4,6 +4,7 @@ class LikesController < ApplicationController
   def create
     @like = current_user.likes.new(product_id: params[:product_id])
     @like.save
+    UserMailer.send_message_to_user(@like).deliver_now
     redirect_back(fallback_location: root_path)
   end
 

@@ -1,9 +1,10 @@
 class Administer::CategoriesController < Administer::ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
   before_action :verify_administer
+  PER = 10
 
   def index
-    @categories = Category.all
+    @categories = Category.page(params[:page]).per(PER)
   end
 
 
@@ -22,30 +23,15 @@ class Administer::CategoriesController < Administer::ApplicationController
 
   def create
     @category = Category.new(category_params)
-
-    respond_to do |format|
-      if @category.save
-        format.html { redirect_to [:administer, @category], notice: 'Category was successfully created.' }
-        format.json { render :show, status: :created, location: [:administer, @category] }
-      else
-        format.html { render :new }
-        format.json { render json: @category.errors, status: :unprocessable_entity }
-      end
-    end
+    @category.save
+    redirect_to administer_categories_path
   end
 
 
 
   def update
-    respond_to do |format|
-      if @category.update(category_params)
-        format.html { redirect_to [:administer, @category], notice: 'Category was successfully updated.' }
-        format.json { render :show, status: :ok, location: [:administer, @category] }
-      else
-        format.html { render :edit }
-        format.json { render json: @category.errors, status: :unprocessable_entity }
-      end
-    end
+    @category.update(category_params)
+    redirect_to administer_categories_path
   end
 
 

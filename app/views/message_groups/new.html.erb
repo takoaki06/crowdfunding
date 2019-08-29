@@ -1,0 +1,21 @@
+<h4>プロダクトの企画者とメッセージをする</h4>
+<p>メッセージしたいプロダクトの企画者を選択してください。<br>
+セレクトボックスにはあなたが出資したプロダクトの企画者のみ選択できます。<br>
+グループ名は自由に作成してください。
+</p>
+
+<%= form_with model: @message_group do |f| %>
+
+  <div class="filed">
+    <%= f.label :ユーザーを選択してください %>
+    <%= f.collection_select :user_ids, User.joins(products: :investments).where(investments: {user_id: current_user.id}).distinct, :id, :name, { include_blank: '選択してください'}  %>
+  </div>
+
+  <div class="field">
+    <%= f.label :グループ名 %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="actions">  
+    <%= f.submit "グループを作成する" %>
+  </div>
+<% end %>
