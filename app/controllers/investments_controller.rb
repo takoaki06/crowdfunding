@@ -1,4 +1,5 @@
 class InvestmentsController < ApplicationController
+  before_action :authenticate_user!
   before_action :check_owner, only: [:new, :create]
   before_action :limit_of_amount, only: [:new, :create]
   before_action :not_exceed_price, only: [:create]
