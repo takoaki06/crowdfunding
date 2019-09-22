@@ -4,7 +4,7 @@
     <% if product.thumbnail? %>
       <div class="thumbnail">
         <%= link_to product_path(product) do %>
-          <%= image_tag product.thumbnail.url %>
+          <%= image_tag product.thumbnail.url, class: "thumbnail-image" %>
         <% end %>
       </div>
     <% end %>

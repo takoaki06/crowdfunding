@@ -4,7 +4,7 @@
 
   <% if @product.thumbnail? %>
       <div class="thumbnail">
-        <%= image_tag @product.thumbnail.url %>
+        <%= image_tag @product.thumbnail.url, class:"thumbnail-image" %>
       </div>
   <% end %>
 

@@ -44,7 +44,7 @@
 
   <div class="field">
     <p>
-      <%= image_tag @product.thumbnail.url if @product.thumbnail? %>
+      <%= image_tag @product.thumbnail.url, class:"thumbnail-image" if @product.thumbnail? %>
       <%= form.label :プロダクトの画像 %>
       <%= form.file_field :thumbnail %>
       <%= form.hidden_field :thumbnail_cache %>
