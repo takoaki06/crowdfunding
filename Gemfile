@@ -47,7 +47,7 @@ gem 'jquery-rails'
 
 gem 'mysql2', '~> 0.4.10'
 
-gem 'kaminari', '~> 0.17.0'
+gem 'kaminari', '~> 1.2.1'
 
 gem 'devise-bootstrap-views', '~> 1.0'
 
